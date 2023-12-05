@@ -8,7 +8,7 @@
             num *= i;
             Console.WriteLine($"Factorial: {num}");
         }
-        
+
     }
 }
 
@@ -30,7 +30,7 @@ void StepenNumber(object? obj)
 {
     if (obj is int n)
     {
-        Console.WriteLine($"Stepen {n * n}" );
+        Console.WriteLine($"Stepen {n * n}");
     }
 }
 
@@ -42,7 +42,8 @@ Thread thread3 = new Thread(Fibonachi);
 
 
 Console.WriteLine("Введите число для вывполнения операции:");
-int number = Convert.ToInt32(Console.ReadLine());
+int number = 0;
+int.TryParse(Console.ReadLine(),out number);
 
 
 thread1.Start(number);
