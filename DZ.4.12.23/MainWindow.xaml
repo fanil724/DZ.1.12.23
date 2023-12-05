@@ -1,0 +1,45 @@
+﻿<Window x:Class="DZ._4._12._23.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DZ._4._12._23"
+        mc:Ignorable="d"
+		WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="500" Width="800" ResizeMode="NoResize">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="300"/>
+			<RowDefinition Height="40"/>
+			<RowDefinition Height="40"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Label Content="Begin" HorizontalAlignment="Left" Margin="30,0,0,20"/>
+		<Label Content="End" HorizontalAlignment="Right" Margin="0,0,50,20"/>
+		<TextBox x:Name="BeginPN" Text="0" HorizontalAlignment="Left" Margin="30,20,10,10" Width="60"/>
+		<TextBox x:Name="EndPN" Text="0" HorizontalAlignment="Right" Margin="0,20,20,10" Width="60"/>
+		
+		<Label Content="End" HorizontalAlignment="Right" Grid.Column="1" Margin="0,0,90,20"/>		
+		<TextBox x:Name="EndF" Text="1000000000" Grid.Column="1" HorizontalAlignment="Right" Margin="0,20,60,10" Width="60"/>
+		
+		<Button x:Name="StartPN" Content="Старт для простого числа" HorizontalAlignment="Center" Click="StartPN_Click" Margin="5,5,5,5"/>
+		<Button x:Name="StartF" Content="Старт для числа Фибоначи" Grid.Column="1" Click="StartF_Click" HorizontalAlignment="Left" Margin="45,5,5,5"/>
+			
+		<ListBox x:Name="PrimaryNumber" Grid.Row="1"/>
+		<ListBox x:Name="Fibonachi" Grid.Row="1" Grid.Column="1"/>
+
+		<Button x:Name="StopPN" Grid.Row="2" HorizontalAlignment="Left" Margin="25,5,5,5" Click="StopPN_Click" Content="Стоп простого числа"  Width="150"/>
+		<Button x:Name="ResetPN" Grid.Row="2" HorizontalAlignment="Right" Margin="5,5,25,5" Click="ResetPN_Click" Content="Сброс простого числа"  Width="150"/>
+		<Button x:Name="StopF" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="25,5,5,5" Click="StopF_Click" Content="Стоп числа Фибоначи"  Width="150"/>
+		<Button x:Name="ResetF" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="5,5,25,5" Click="ResetF_Click" Content="Сброс числа Фибоначи"  Width="150"/>
+
+		<Button x:Name="PausePN" Grid.Row="3" HorizontalAlignment="Left" Margin="25,5,5,5"  Click="PausePN_Click" Content="Пауза простого числа"  Width="150"/>
+		<Button x:Name="PlayPN" Grid.Row="3" HorizontalAlignment="Right" Margin="5,5,25,5" Click="PlayPN_Click" Content="Возобн простого числа"  Width="150"/>
+		<Button x:Name="PaueF" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="25,5,5,5" Click="PaueF_Click" Content="Пауза числа Фибоначи"  Width="150"/>
+		<Button x:Name="PlayF" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="5,5,25,5"  Click="PlayF_Click" Content="Возобн числа Фибоначи"  Width="150"/>
+	</Grid>
+</Window>
