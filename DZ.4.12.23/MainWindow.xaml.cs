@@ -9,6 +9,12 @@ namespace DZ._4._12._23
         static CancellationTokenSource cancelTokenSource2 = new CancellationTokenSource();
         static CancellationToken token2 = cancelTokenSource2.Token;
 
+        AutoResetEvent autoPN = new AutoResetEvent(true);
+        bool PPN = false;
+
+        AutoResetEvent autoF = new AutoResetEvent(true);
+        bool PF = false;
+
         Thread tPN;
         Thread tF;
         Ranges rPN;
@@ -43,7 +49,6 @@ namespace DZ._4._12._23
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
         private void StartF_Click(object sender, RoutedEventArgs e)
@@ -101,22 +106,24 @@ namespace DZ._4._12._23
 
         private void PausePN_Click(object sender, RoutedEventArgs e)
         {
-
+            PPN = true;
         }
 
         private void PlayPN_Click(object sender, RoutedEventArgs e)
         {
-
+            PPN = false;
+            autoPN.Set();
         }
 
         private void PaueF_Click(object sender, RoutedEventArgs e)
         {
-
+            PF=true;
         }
 
         private void PlayF_Click(object sender, RoutedEventArgs e)
         {
-
+            PF = false;
+            autoF.Set();
         }
 
         public void PrimaryN(object obj)
@@ -133,6 +140,8 @@ namespace DZ._4._12._23
                     bool b = true;
                     for (int j = 2; j < i; j++)
                     {
+                        if (PPN) { autoPN.WaitOne(); }
+
                         if (token.IsCancellationRequested)
                         {
                             return;
@@ -148,7 +157,7 @@ namespace DZ._4._12._23
                         {
                             PrimaryNumber.Items.Add(i);
                         }));
-                        Thread.Sleep(50);
+                        Thread.Sleep(150);
                     }
                 }
             }
@@ -162,12 +171,14 @@ namespace DZ._4._12._23
                 int j = 1;
                 for (int i = 1; i <= end; i += j)
                 {
-
+                    if (PF) { autoF.WaitOne(); }
                     Dispatcher.Invoke((Action)(() =>
                     {
                         Fibonachi.Items.Add(i);
                     }));
                     Thread.Sleep(50);
+
+
 
                     if (token2.IsCancellationRequested)
                     {
@@ -177,6 +188,6 @@ namespace DZ._4._12._23
                     j = i - j;
                 }
             }
-        }
+        }      
     }
 }
