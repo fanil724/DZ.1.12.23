@@ -78,7 +78,6 @@ namespace DZ._4._12._23
             if (token.IsCancellationRequested == false)
             {
                 cancelTokenSource.Cancel();
-
             }
         }
 
@@ -117,7 +116,7 @@ namespace DZ._4._12._23
 
         private void PaueF_Click(object sender, RoutedEventArgs e)
         {
-            PF=true;
+            PF = true;
         }
 
         private void PlayF_Click(object sender, RoutedEventArgs e)
@@ -125,7 +124,6 @@ namespace DZ._4._12._23
             PF = false;
             autoF.Set();
         }
-
         public void PrimaryN(object obj)
         {
             int begin;
@@ -159,6 +157,8 @@ namespace DZ._4._12._23
                         }));
                         Thread.Sleep(150);
                     }
+
+
                 }
             }
 
@@ -168,6 +168,7 @@ namespace DZ._4._12._23
         {
             if (obj is int end)
             {
+
                 int j = 1;
                 for (int i = 1; i <= end; i += j)
                 {
@@ -176,9 +177,7 @@ namespace DZ._4._12._23
                     {
                         Fibonachi.Items.Add(i);
                     }));
-                    Thread.Sleep(50);
-
-
+                    Thread.Sleep(250);
 
                     if (token2.IsCancellationRequested)
                     {
@@ -186,8 +185,9 @@ namespace DZ._4._12._23
                     }
 
                     j = i - j;
+
                 }
             }
-        }      
+        }
     }
 }
